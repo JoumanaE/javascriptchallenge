@@ -48,7 +48,14 @@
         return currentYear - person.year >= 19;
     }); 
 
+
+    //or 
+
+    const isAdult = people.some(person => ((new Date()).getFullYear()) -person.year > 19); 
+
     // Array.prototype.find()
+
+    (people.year < 1999))
 
 var finds = function(person) {
     return person.id === 823423
@@ -62,17 +69,34 @@ console.log(findings);
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
 
+const comment = comments.find(comment => {(comment.id === 823423)
+return true; 
+});  
 const finding = comments.find(function(person) {
-if(person.id === 823423) {
-return person.text;
-}
-console.log(person.text); 
+    if(person.id === 823423) {
+      return person.text;
+      
+    }
+  console.log(person.text); 
     });
+
+const comment = comments.find(comment =>comment.id ===823423 );
+console.log(comment); 
+
 
 
     // Array.prototype.findIndex()
+const index = comments.findIndex(comment => comment.id===823423)
+console.log(index); 
+
+//comments.splice(index,1); 
+
+const newComments = [
+    ...comments.slice(0, index),
+    ...comments.slice(index + 1)
 
 
+];
     // Find the comment with this ID
     // delete the comment with the ID of 823423
   </script>
