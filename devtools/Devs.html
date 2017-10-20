@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<body>
+
+  <p onClick="makeBlue()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'Greg', age: 8 }];
+    function makeBlue() {
+      const p = document.querySelector('p');
+      p.style.color = '#3232ff';
+      p.style.fontSize = '100px';
+    }
+    // Regular
+   console.log('hello'); 
+    // Interpolated
+    console.log('Hello I am a %s string' ,'sign'); 
+    // Styled
+    console.log('%c I am some great text', 'font-size: 50px; background-color:#000099; text-shadow:10 px 10px 0 black')
+    // warning!
+    console.warn("OH NOOO"); 
+
+    // Error :|
+    console.error('Sh@%!'); 
+    
+    // Info
+    console.info('This is JavaScript'); 
+
+    // Testing
+
+    const p = document.querySelector('p'); 
+
+    console.assert(p.classList.contains('ouch'), 'That is wrong'); 
+
+    // clearing
+
+    console.clear(); 
+
+    // Viewing DOM Elements
+
+    console.log(p);
+    console.dir(p); 
+    //allows you to open it up and check the different properties and methods
+
+    // Grouping together
+
+    dogs.forEach(dog => {
+        console.groupCollapsed(`${dog.name}`);
+        console.log(`This is ${dog.name}`);
+        console.log(`This is ${dog.name} is ${dog.age} years old`);
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`); 
+        console.groupEnd(`${dog.name}`); 
+    })
+
+    // counting
+
+    console.count('Joe');
+    console.count('Joe');
+    console.count('Joe'); 
+    console.count('Joe'); 
+    console.count('Joe'); 
+    console.count('Joe'); 
+
+    // timing
+
+    console.time('fetching data'); 
+    fetch('https://api.github.com/users/joumanae')
+    .then(data => data.json())
+    .then(data => {
+        console.timeEnd('fetching data'); 
+        console.log(data);
+    }); 
+
+    console.table(dogs);
+  </script>
+
+  <style> 
+  h1,h2,p{ 
+      font-family: 'Raleway', sans-serif;
+      }
+      
+
+  </style> 
+</body>
+</html>
