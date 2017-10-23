@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A list</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<body>
+  <style>
+    html {
+    font-family: 'Raleway', sans-serif;
+    background:#4400ff;
+    }
+    .list {
+      max-width:400px;
+      margin:50px auto;
+      background:white;
+      border-radius:5px;
+      box-shadow:10px 10px 0 rgba(0,0,0,0.1);
+    }
+    .item {
+      display:flex;
+      align-items:center;
+      border-bottom: 1px solid #F1F1F1;
+    }
+    .item:last-child {
+      border-bottom:0;
+    }
+
+    input:checked + p {
+        background:#D1E2FF;
+        text-decoration: underline #4400ff; 
+    }
+
+    input[type="radio"]{
+        margin:20px; 
+        
+    }
+
+    p {
+      margin:0;
+      padding:20px;
+      transition:background 0.2s;
+      flex:1;
+      font-family: 'Raleway', sans-serif;
+      font-size: 20px;
+      font-weight: 200;
+      border-left: 1px solid #D1E2FF;
+    }
+
+  #clear-button{
+    margin-left:50px; 
+    margin-bottom:30px; 
+    font-family: 'Raleway', sans-serif;
+  
+    }
+
+  </style>
+
+<div class="list">
+        <div class="item">
+          <input id="r1" type="radio">
+          <p>This is an inbox layout.</p>
+        </div>
+        <div class="item">
+          <input id="r2" type="radio">
+          <p>Check one item</p>
+        </div>
+        <div class="item">
+          <input id="r3" type="radio">
+          <p>Hold down your Shift key</p>
+        </div>
+        <div class="item">
+          <input id="r4" type="radio">
+          <p>Check a lower item</p>
+        </div>
+        <div class="item">
+          <input id="r5"  type="radio">
+          <p>Everything inbetween should also be set to checked</p>
+        </div>
+        <div class="item">
+          <input id="r6" type="radio">
+          <p>Try do it with out any libraries</p>
+        </div>
+        <div class="item">
+          <input id="r7" type="radio">
+          <p>Just regular JavaScript</p>
+        </div>
+        <div class="item">
+          <input id="r8" type="radio">
+          <p>Good Luck!</p>
+        </div>
+        <div class="item">
+          <input id="r9" type="radio">
+          <p>Don't forget to tweet your result!</p>
+        </div>
+        <button id="clear-button"> Clear </button>
+      </div>
+
+<script>
+    function handleCheck(e) {
+      console.log(e); 
+    }
+
+    document.getElementById('clear-button').addEventListener('click', function () { 
+    ["r1", "r2","r3","r4","r5","r6","r7","r8","r9"].forEach(function(id){
+        document.getElementById(id).checked = false; 
+      }); 
+      return false;  
+    })
+
+
+
+    var lines = document.querySelectorAll('.list input[type="radio"]');
+    lines.forEach(radio => radio.addEventListener('click', handleCheck));
+    lines.forEach(radio => radio.addEventListener('dbclick', unCheck));
+
+    
+</script>
+</body>
+</html>
